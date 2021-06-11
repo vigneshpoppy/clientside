@@ -1,0 +1,36 @@
+<p>speaker-login works!</p>
+
+<div>
+    <h1>Speaker-Login</h1>
+    <form #regisform="ngForm" (ngSubmit)=" ValidateRegistration(regisform.value)" novalidate>
+      
+      
+        <div class="form-group">
+        <label>Enter Email</label>
+        <input type="text" name="email" #email="ngModel" ngModel required/>
+        <div class="er" *ngIf="regisform.submitted &&  email.invalid" > 
+            <div class="er"*ngIf="email.errors?.required"> Email Name is required</div>
+        </div>
+    </div>
+
+        <br/>
+        <div class="form-group">
+        <label>Enter Password</label>
+        <input type="text" name="pwd" #pwd="ngModel" ngModel minlength="6" required/>
+        <div class="er" *ngIf="regisform.submitted &&  pwd.invalid" > 
+            <div class="er" *ngIf="pwd.errors?.required"> Password is required</div>
+        </div>
+        <div *ngIf="pwd.errors?.minlength">
+            Name must be at least 6 characters long.
+          </div>
+
+    </div>
+        
+        <br/>
+         <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="login" name="reg"/>
+
+    </div>
+
+
+    </form>
